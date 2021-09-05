@@ -5,7 +5,7 @@
 Summary:	Low-level CSS parser for Python
 Name:		python3-tinycss2
 Version:	1.1.0
-Release:	2
+Release:	1
 License:	BSD
 Source0:	https://files.pythonhosted.org/packages/source/t/tinycss2/tinycss2-%{version}.tar.gz
 # Source0-md5:	7caf513c4e87fc2449dcfbf407a8416f
