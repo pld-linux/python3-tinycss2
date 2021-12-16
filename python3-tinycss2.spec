@@ -24,8 +24,8 @@ BuildRequires:	python3-pytest-cov
 BuildRequires:	python3-webencodings >= 0.4
 %endif
 %if %{with doc}
+BuildRequires:	python3-Sphinx
 BuildRequires:	python3-sphinx_rtd_theme
-BuildRequires:	sphinx-pdg-3
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
