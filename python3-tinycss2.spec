@@ -7,7 +7,7 @@ Summary:	Low-level CSS parser for Python
 Summary(pl.UTF-8):	Niskopoziomowy parser CSS dla Pythona
 Name:		python3-tinycss2
 Version:	1.1.0
-Release:	3
+Release:	4
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/tinycss2/
