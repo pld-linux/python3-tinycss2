@@ -15,6 +15,7 @@ Source0:	https://files.pythonhosted.org/packages/source/t/tinycss2/tinycss2-%{ve
 # Source0-md5:	7caf513c4e87fc2449dcfbf407a8416f
 Patch0:		disable-flake8-isort-for-pytest.patch
 Patch1:		disable-missing-data-tests.patch
+Patch2:		no-cov.patch
 URL:		https://pypi.org/project/tinycss2/
 BuildRequires:	python3-modules >= 1:3.6
 BuildRequires:	python3-setuptools
@@ -58,6 +59,7 @@ Dokumentacja API modułu Pythona tinycss2.
 %setup -n tinycss2-%{version}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 # for pythonegg dependencies
 %{__sed} -i -e 's/distutils.core/setuptools/' setup.py
