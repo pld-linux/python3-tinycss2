@@ -56,10 +56,10 @@ API documentation for Python tinycss2 module.
 Dokumentacja API modułu Pythona tinycss2.
 
 %prep
-%setup -n tinycss2-%{version}
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%setup -q -n tinycss2-%{version}
+%patch -P 0 -p1
+%patch -P 1 -p1
+%patch -P 2 -p1
 
 # for pythonegg dependencies
 %{__sed} -i -e 's/distutils.core/setuptools/' setup.py
