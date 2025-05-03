@@ -6,19 +6,17 @@
 Summary:	Low-level CSS parser for Python
 Summary(pl.UTF-8):	Niskopoziomowy parser CSS dla Pythona
 Name:		python3-tinycss2
-Version:	1.1.0
-Release:	8
+Version:	1.4.0
+Release:	1
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/tinycss2/
 Source0:	https://files.pythonhosted.org/packages/source/t/tinycss2/tinycss2-%{version}.tar.gz
-# Source0-md5:	7caf513c4e87fc2449dcfbf407a8416f
-Patch0:		disable-flake8-isort-for-pytest.patch
-Patch1:		disable-missing-data-tests.patch
-Patch2:		no-cov.patch
+# Source0-md5:	de6bd20b47354352c2b2344c842385c7
 URL:		https://pypi.org/project/tinycss2/
+BuildRequires:	python3-build
+BuildRequires:	python3-installer
 BuildRequires:	python3-modules >= 1:3.6
-BuildRequires:	python3-setuptools
 %if %{with tests}
 BuildRequires:	python3-pytest
 BuildRequires:	python3-pytest-cov
@@ -57,15 +55,9 @@ Dokumentacja API modułu Pythona tinycss2.
 
 %prep
 %setup -q -n tinycss2-%{version}
-%patch -P 0 -p1
-%patch -P 1 -p1
-%patch -P 2 -p1
-
-# for pythonegg dependencies
-%{__sed} -i -e 's/distutils.core/setuptools/' setup.py
 
 %build
-%py3_build
+%py3_build_pyproject
 
 %if %{with tests}
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
@@ -81,7 +73,7 @@ PYTHONPATH=$(pwd)/.. \
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%py3_install
+%py3_install_pyproject
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -90,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc LICENSE README.rst
 %{py3_sitescriptdir}/tinycss2
-%{py3_sitescriptdir}/tinycss2-%{version}-py*.egg-info
+%{py3_sitescriptdir}/tinycss2-%{version}.dist-info
 
 %if %{with doc}
 %files apidocs
