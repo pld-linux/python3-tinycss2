@@ -7,7 +7,7 @@ Summary:	Low-level CSS parser for Python
 Summary(pl.UTF-8):	Niskopoziomowy parser CSS dla Pythona
 Name:		python3-tinycss2
 Version:	1.5.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/tinycss2/
@@ -25,8 +25,8 @@ BuildRequires:	python3-pytest-cov
 BuildRequires:	python3-webencodings >= 0.4
 %endif
 %if %{with doc}
-BuildRequires:	python3-Sphinx
 BuildRequires:	python3-furo
+BuildRequires:	sphinx-pdg-3
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 2.044
@@ -67,9 +67,8 @@ PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 %endif
 
 %if %{with doc}
-cd docs
-PYTHONPATH=$(pwd)/.. \
-%{__python3} -m sphinx -W . build/html
+PYTHONPATH=$(pwd) \
+sphinx-build-3 -b html docs docs/build/html
 %endif
 
 %install
